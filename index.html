@@ -1,0 +1,32 @@
+function calculate(operator) {
+    // Lấy giá trị từ các ô nhập
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    let result;
+
+    // Thực hiện phép tính tương ứng
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            // Kiểm tra chia cho 0
+            if (num2 === 0) {
+                result = 'Không thể chia cho 0!';
+            } else {
+                result = num1 / num2;
+            }
+            break;
+        default:
+            result = 'Phép toán không hợp lệ!';
+    }
+
+    // Hiển thị kết quả
+    document.getElementById('result').innerText = `Kết quả: ${result}`;
+}
